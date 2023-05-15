@@ -1,0 +1,4 @@
+const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMGNlN2I2MDI3YmU5NDQ0NWQyOTY3ODkwYzRiZjljZiIsInN1YiI6IjY0NWYzYTNkNmUwZDcyMDE3YjMwMDgzZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Z5CXsonWQo9h5msZ1tJkMODd-3WS8cY3BYa_oA1Z2A8';
+export {
+    accessToken
+}

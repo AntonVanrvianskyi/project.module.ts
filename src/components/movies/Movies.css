@@ -1,0 +1,23 @@
+.movies-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 60px;
+
+
+}
+
+.movies{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+
+}
+/*.link-genre{*/
+/*    margin-top: 60px;*/
+/*    width: 100px;*/
+/*    height: 40px;*/
+/*}*/
