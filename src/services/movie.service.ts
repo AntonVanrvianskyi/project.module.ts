@@ -2,17 +2,23 @@ import {IRes} from "../types";
 import {IMovie, IPaginationMovie} from "../interfaces";
 import {axiosService} from "./axios.service";
 import {urls} from "../constants/urls";
-import {IVideo, IVideoObject} from "../interfaces/video.interface";
+import {IVideo, IVideoObject} from "../interfaces";
 
 class MovieService {
-    getAll(page:number=1):IRes<IPaginationMovie<IMovie[]>>{
-        return  axiosService.get(urls.getMovie,{params:{page:page}})
+    getAll(page:number):IRes<IPaginationMovie<IMovie[]>>{
+        return  axiosService.get(urls.getMovie(page),)
     }
-    getGenreByMovie(idGenre:number,page:number=1):IRes<IPaginationMovie<IMovie[]>>{
+    getGenreByMovie(idGenre:number,page:number):IRes<IPaginationMovie<IMovie[]>>{
         return  axiosService.get(urls.getMovieByGenre(idGenre,page))
     }
     getVideoById(movieId:number):IRes<IVideoObject<IVideo[]>>{
         return axiosService.get(urls.getVideo(movieId))
+    }
+    searchMovie(query:string,page:number):IRes<IPaginationMovie<IMovie[]>>{
+        return axiosService.get(urls.searchMovie(query,page))
+    }
+    getUpcomingMovie(page:number):IRes<IPaginationMovie<IMovie[]>>{
+        return axiosService.get(urls.getUpcomingMovie(page))
     }
 }
 export const movieService = new MovieService()

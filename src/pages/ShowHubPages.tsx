@@ -1,16 +1,26 @@
-import React, {useEffect} from 'react';
-import Genres from "../components/genres/Genres";
-import {Pagination} from "@mui/material";
-import {useAppDispatch, useAppSelector} from "../hooks";
-import {movieAction} from "../redux";
+import React from 'react';
+
+
+import HomeComponent from "../components/show.hub/HomeComponent";
+import {Navigate,  useSearchParams} from "react-router-dom";
+import {useAppSelector} from "../hooks";
+
+
+
 
 
 const ShowHubPages = () => {
 
+    const [query,] = useSearchParams()
+    const queryString = query.get('query')
+    const {query:querySearch} = useAppSelector(state => state.movieReducer)
 
     return (
         <div>
-            ShowHubPages
+            {
+                queryString?<Navigate to={`/movie?query=${querySearch}&page=1`}/>:  <HomeComponent/>
+            }
+
 
 
         </div>

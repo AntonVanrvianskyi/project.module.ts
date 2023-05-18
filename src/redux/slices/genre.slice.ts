@@ -7,13 +7,17 @@ interface IState {
     triggerComponent:boolean,
     genres:IGenre[],
     error:IError,
-    movieByGenre:IMovie[]
+    movieByGenre:IMovie[],
+    currPage:number,
+    totalPage:number
 }
 const initialState:IState = {
     triggerComponent:false,
     genres:[],
     error:null,
-    movieByGenre:[]
+    movieByGenre:[],
+    currPage:1,
+    totalPage:0
 }
 
 const getAll = createAsyncThunk<IGenres<IGenre[]>,void>(
@@ -48,6 +52,9 @@ const slice = createSlice({
     reducers:{
         showGenreComponent:state => {
             state.triggerComponent = !state.triggerComponent
+        },
+        changeCurrPage:(state, action) => {
+            state.currPage = action.payload
         }
     },
     extraReducers:builder => {
@@ -57,7 +64,9 @@ const slice = createSlice({
                 state.genres = genres
             })
             .addCase(getMovieByGenre.fulfilled,(state, action) => {
-                const {results} = action.payload
+                const {page,total_pages,results} = action.payload
+                state.currPage=page
+                state.totalPage=total_pages
                 state.movieByGenre = results
             })
             .addMatcher(isRejectedWithValue(),(state, action) =>{

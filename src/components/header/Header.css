@@ -1,10 +1,12 @@
+
 .container{
     width: 100%;
-    height: 60px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
+    background-color: black;
 }
 .head-ul{
     list-style: none;
@@ -16,21 +18,24 @@
     padding-left: 160px;
     text-decoration: none;
     font-size: 20px;
-    color: black;
+    color: #f6f6f8;
+    text-transform: uppercase;
 }
 .a.active{
+    color: orangered;
     font-weight: bold;
 }
 
 .admin{
     height: 40px;
     width: 40px;
-    border: 2px solid black;
+    border: 2px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     margin-right: 40px;
+    color: white;
 }
 .admin-container{
     width: 200px;
@@ -93,14 +98,53 @@
     align-items: center;
     /*margin-right: 70px;*/
 }
+.link.active{
+    font-weight: bolder;
+    color: orangered;
+    border-bottom: 2px solid;
+    border-bottom-color: orangered;
+}
 .link{
     text-decoration: none;
     font-size: 18px;
     color: white;
 }
 .link:hover{
-    color: #f10b0b;
+    font-weight: bolder;
+    color: orangered;
+    border-bottom: 2px solid;
+    border-bottom-color: orangered;
 }
+.search-form{
+    border: 1px solid tomato;
+    display: inline-flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
 
+}
+.search-form_txt{
+    border: none;
+    width: 200px;
+    outline: none;
+    font-size: 20px;
+    padding-right: 10px;
+    background-color: transparent;
+}
+.search-form_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+}
+.search-form_image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
 
