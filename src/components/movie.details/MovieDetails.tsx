@@ -12,7 +12,7 @@ import {useNavigate} from "react-router-dom";
 const MovieDetails:FC = () => {
 
     const {state} = useAppLocation<IMovie>()
-    const {id,title,poster_path,overview,vote_average,genre_ids} = state
+    const {id,title,poster_path,overview,vote_average,release_date,genre_ids} = state
 
     const navigate = useNavigate()
 
@@ -37,6 +37,7 @@ const MovieDetails:FC = () => {
                 <img className='img-details' src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={'poster'}/>
                 <p className='text-p'>{title}</p>
                 <div>
+                    <p className='text-p'>Release date: {release_date}</p>
                     <h2 className='h2'>Overview:</h2>
                     <p className='text-p'>
                     {overview}

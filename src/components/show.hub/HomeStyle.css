@@ -1,5 +1,29 @@
-.img{
-    width: 50%;
-    height: 50vh;
+.head-block{
 
+    padding: 40px;
+    background-color: var(--var-headBlock-bg);
+}
+.now-watch-movie{
+    width: 100%;
+    height: 850px;
+}
+.title-upcoming{
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--var-title-upcoming-color);
+}
+.title-play{
+    margin-top: 90px;
+    text-align: center;
+    color: #d0cfcf;
+    margin-bottom: 40px;
+}
+
+.now-watch-movie{
+
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*align-items: center;*/
 }

@@ -20,9 +20,6 @@ function App() {
                     <Route path={':id'} element={<MovieDetails/>}/>
                 </Route>
                 <Route path={'genres/:genreId/:name'} element={<GenreMovieListPage/>}/>
-
-
-
                 </Route>
         </Routes>
 );

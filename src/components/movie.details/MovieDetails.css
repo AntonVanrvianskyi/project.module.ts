@@ -6,7 +6,7 @@
     justify-content: space-around;
     padding-top: 50px;
     align-items: flex-start;
-    background-color: #504f4f;
+    background-color: var(--var-movie-details-bg);
 }
 
 .content-details{
@@ -30,11 +30,11 @@
     justify-content: space-around;
 }
 .text-p{
-    color: #d0cfcf;
+    color: var(--var-movie-details-text-color);
     font-size: 20px;
 }
 .h2{
-    color: #d0cfcf;
+    color: var(--var-movie-details-text-color);
     margin: 0;
 
 }
@@ -42,6 +42,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
     width: 120px;
     height: 25px;
     border: 1px solid black;

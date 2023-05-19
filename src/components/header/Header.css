@@ -1,3 +1,27 @@
+:root{
+    --var-continer-bg:black;
+    --var-link-color:#f6f6f8;
+    --var-headBlock-bg:#504f4f;
+    --var-title-upcoming-color:#d0cfcf;
+    --var-movies-bg:#504f4f;
+    --var-movie-bg:#969393;
+    --var-title-genre-color:#d0cfcf;
+    --var-movie-details-bg:#504f4f;
+    --var-movie-details-text-color: #d0cfcf;
+
+}
+[dark]{
+    --var-continer-bg: #a19f9f;
+    --var-link-color: #3d3a3a;
+    --var-headBlock-bg: #cbc7c7;
+    --var-title-upcoming-color: black;
+    --var-movies-bg: #cbc7c7;
+    --var-movie-bg: #ffffff;
+    --var-title-genre-color: black;
+    --var-movie-details-bg: #cbc7c7;
+    --var-movie-details-text-color: black;
+
+}
 
 .container{
     width: 100%;
@@ -6,7 +30,7 @@
     justify-content: space-between;
     align-items: center;
     /*border: 2px solid black;*/
-    background-color: black;
+    background-color: var(--var-continer-bg);
 }
 .head-ul{
     list-style: none;
@@ -18,7 +42,7 @@
     padding-left: 160px;
     text-decoration: none;
     font-size: 20px;
-    color: #f6f6f8;
+    color: var(--var-link-color);
     text-transform: uppercase;
 }
 .a.active{
@@ -73,6 +97,7 @@
 }
 
 .dropdown {
+    z-index: 1;
     padding-right: 20px;
     position: absolute;
     top: 100%;
@@ -147,4 +172,6 @@
     justify-content: center;
 
 }
-
+.dark{
+    background-color: white;
+}

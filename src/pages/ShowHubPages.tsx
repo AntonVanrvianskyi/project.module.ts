@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import HomeComponent from "../components/show.hub/HomeComponent";
 import {Navigate,  useSearchParams} from "react-router-dom";
 import {useAppSelector} from "../hooks";
@@ -20,9 +19,6 @@ const ShowHubPages = () => {
             {
                 queryString?<Navigate to={`/movie?query=${querySearch}&page=1`}/>:  <HomeComponent/>
             }
-
-
-
         </div>
     );
 };

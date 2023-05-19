@@ -1,10 +1,8 @@
-import React, {FC} from 'react';
+import React, {ChangeEvent, FC, FormEvent} from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
 
 import './Header.css'
-
 import Genres from "../genres/Genres";
-
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {Switch} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
@@ -14,13 +12,18 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {ISearch} from "../../interfaces";
 import {movieAction} from "../../redux";
 
+import Avatar from '@mui/material/Avatar';
+// @ts-ignore
+import photoUser from '../../assets/images/pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_1527664.jpg'
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import {blue} from "@mui/material/colors";
 
 const Header:FC = () => {
 
     const {register,handleSubmit,reset} = useForm<ISearch>()
 
     const dispatch = useAppDispatch()
-    const {query,CurrPage} = useAppSelector(state => state.movieReducer)
+    const {CurrPage} = useAppSelector(state => state.movieReducer)
 
     const navigate = useNavigate()
     const setParam:SubmitHandler<ISearch> = ({name}) => {
@@ -30,6 +33,16 @@ const Header:FC = () => {
         reset()
 
     }
+    const changeTheme = (checked:boolean) => {
+        if (checked){
+            document.body.setAttribute('dark','')
+
+        }else {
+            document.body.removeAttribute('dark')
+        }
+    }
+
+
 
     return (
         <div className='container'>
@@ -52,8 +65,8 @@ const Header:FC = () => {
             </div>
             <div className='admin-container'>
 
-                <Switch color='secondary' name="checkedA" />
-                <div className='admin'>A</div>
+                <Switch color='secondary' name="checkedA" onChange={(event, checked)=>changeTheme(checked)}/>
+                <div className='admin'><Avatar alt="Remy Sharp" src={photoUser} /></div>
             </div>
 
 

@@ -11,8 +11,7 @@ interface IState {
     CurrPage: number,
     total_pages: number,
     query:string,
-
-
+    moviesPlayNow:IMovie[]
 
 }
 
@@ -22,7 +21,8 @@ const initialState: IState = {
     videoList: [],
     total_pages: 0,
     CurrPage: 1,
-    query:''
+    query:'',
+    moviesPlayNow:[]
 
 }
 
@@ -75,6 +75,18 @@ const getUpcomingMovie = createAsyncThunk<IPaginationMovie<IMovie[]>,{page:numbe
 
     }
 )
+const getMoviesPlayNow = createAsyncThunk<IPaginationMovie<IMovie[]>,{page:number}>(
+    'movieSlice/getMoviesPlayNow',
+    async ({page},{rejectWithValue})=>{
+        try {
+            const {data} = await movieService.getMoviePlayNow(page)
+            return data
+        }catch (e) {
+            const err = e as AxiosError
+            return rejectWithValue(err.response.data)
+        }
+    }
+)
 
 const slice = createSlice({
     name: 'movieSlice',
@@ -110,6 +122,10 @@ const slice = createSlice({
                 state.movies = results
 
             })
+            .addCase(getMoviesPlayNow.fulfilled,(state, action) => {
+                const {results} = action.payload
+                state.moviesPlayNow = results
+            })
             .addMatcher(isRejectedWithValue(), (state, action) => {
                 state.error = action.payload
             })
@@ -127,7 +143,8 @@ const movieAction = {
     getAll,
     getVideo,
     getMovieSearch,
-    getUpcomingMovie
+    getUpcomingMovie,
+    getMoviesPlayNow
 }
 
 export {

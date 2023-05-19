@@ -20,5 +20,8 @@ class MovieService {
     getUpcomingMovie(page:number):IRes<IPaginationMovie<IMovie[]>>{
         return axiosService.get(urls.getUpcomingMovie(page))
     }
+    getMoviePlayNow(page:number):IRes<IPaginationMovie<IMovie[]>>{
+        return axiosService.get(urls.getPlayNowMovie(page))
+    }
 }
 export const movieService = new MovieService()
