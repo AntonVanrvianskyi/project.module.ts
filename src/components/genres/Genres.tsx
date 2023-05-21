@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
+
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {genreAction, movieAction} from "../../redux";
+import {genreAction} from "../../redux";
 import Genre from "./genre/Genre";
 
 const Genres = () => {
@@ -9,7 +10,7 @@ const Genres = () => {
     const {genres} = useAppSelector(state => state.genreReducer)
     useEffect(()=>{
         dispatch(genreAction.getAll())
-    },[])
+    },[dispatch])
 
     return (
         <ul className='dropdown'>

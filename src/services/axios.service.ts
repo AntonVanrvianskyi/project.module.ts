@@ -1,5 +1,5 @@
 import axios from "axios";
-import {baseURL} from "../constants/urls";
+import {baseURL} from "../constants";
 import {accessToken} from "../constants";
 
 

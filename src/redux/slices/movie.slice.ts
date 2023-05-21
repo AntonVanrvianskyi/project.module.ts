@@ -12,7 +12,8 @@ interface IState {
     total_pages: number,
     query:string,
     moviesPlayNow:IMovie[],
-    showVideo:boolean
+    showVideo:boolean,
+
 
 
 }
@@ -25,7 +26,8 @@ const initialState: IState = {
     CurrPage: 1,
     query:'',
     moviesPlayNow:[],
-    showVideo:false
+    showVideo:false,
+
 }
 
 const getAll = createAsyncThunk<IPaginationMovie<IMovie[]>, { page: number }>(
@@ -105,7 +107,8 @@ const slice = createSlice({
         },
         noVideo:state => {
             state.showVideo = false
-        }
+        },
+
 
 
     },

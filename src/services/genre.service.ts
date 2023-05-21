@@ -1,5 +1,5 @@
 import {axiosService} from "./axios.service";
-import {urls} from "../constants/urls";
+import {urls} from "../constants";
 
 class GenreService {
      getGenre(){

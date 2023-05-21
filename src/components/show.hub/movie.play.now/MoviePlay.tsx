@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
-
-import './MoviePlay.css'
-import {IMovie} from "../../../interfaces";
-import StarRating from "../../star.rating/StarRating";
 import {Rating} from "@mui/material";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import Tooltip from '@mui/material/Tooltip';
 import {useNavigate} from "react-router-dom";
+
+import './MoviePlay.css'
+import {IMovie} from "../../../interfaces";
+
+
 interface IProps {
     movie:IMovie
 }

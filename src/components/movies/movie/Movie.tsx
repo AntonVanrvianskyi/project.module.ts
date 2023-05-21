@@ -1,10 +1,9 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import {IMovie} from "../../../interfaces";
-import './Movie.css'
-import {useAppDispatch, useAppSelector} from "../../../hooks";
-import {movieAction} from "../../../redux";
+
 import {useNavigate} from "react-router-dom";
 import StarRating from "../../star.rating/StarRating";
+import './Movie.css'
 
 interface IProps {
     movie: IMovie

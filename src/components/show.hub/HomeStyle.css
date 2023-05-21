@@ -9,11 +9,13 @@
     height: 850px;
 }
 .title-upcoming{
+    text-transform: uppercase;
     margin-bottom: 40px;
     text-align: center;
     color: var(--var-title-upcoming-color);
 }
 .title-play{
+    text-transform: uppercase;
     margin-top: 90px;
     text-align: center;
     color:  var(--var-title-upcoming-color);
@@ -26,5 +28,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /*align-items: center;*/
+
 }

@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
+import {useNavigate} from "react-router-dom";
+import Tooltip from '@mui/material/Tooltip';
+// @ts-ignore
+import Slider from "react-slick";
 
 import './Slider.css';
 import "./Slider-theme.css";
-// @ts-ignore
-import Slider from "react-slick";
 import './Slider.css'
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieAction} from "../../redux";
-import {useNavigate} from "react-router-dom";
-import Tooltip from '@mui/material/Tooltip';
+
 const SliderComponent = () => {
     const {movies} = useAppSelector(state => state.movieReducer)
     const dispatch = useAppDispatch()

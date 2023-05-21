@@ -1,17 +1,18 @@
 import React, {useEffect} from 'react';
 import {Pagination} from "@mui/material";
+import {useNavigate, useSearchParams} from "react-router-dom";
 
 import './Movies.css'
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieAction} from "../../redux";
 import Movie from "./movie/Movie";
-import {useNavigate, useSearchParams} from "react-router-dom";
+
 
 const Movies = () => {
 
 
     const dispatch = useAppDispatch()
-    const {movies,showVideo, CurrPage,total_pages} = useAppSelector(state => state.movieReducer)
+    const {movies, CurrPage,total_pages} = useAppSelector(state => state.movieReducer)
     const [query,setQuery] = useSearchParams()
 
     const navigate = useNavigate()
@@ -50,7 +51,7 @@ const Movies = () => {
                 }
             </div>
             <div className='paginate'>
-                <Pagination size={"large"} count={total_pages>500?500:total_pages}
+                <Pagination size={"large"} color="primary" count={total_pages>500?500:total_pages}
                             page={CurrPage}
                             onChange={(_, num) => setQueryPage(num)}
                 />

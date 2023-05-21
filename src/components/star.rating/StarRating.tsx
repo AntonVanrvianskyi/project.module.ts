@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+
 import {Rating} from "@mui/material";
 interface IProps {
     vote_average:number
