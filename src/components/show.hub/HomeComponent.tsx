@@ -26,7 +26,7 @@ const HomeComponent = () => {
             <div className='now-watch-movie'>
 
                 {
-                    moviesPlayNow.filter(value => value.release_date>='2023-03-30'&&'2023-04-30').map(value =><MoviePlay key={value.id} movie={value}/> )
+                    moviesPlayNow.filter(value => value.release_date>='2023-04-01').map(value =><MoviePlay key={value.id} movie={value}/> )
                 }
             </div>
         </div>

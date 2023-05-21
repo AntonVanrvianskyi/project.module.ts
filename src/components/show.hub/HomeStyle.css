@@ -4,10 +4,7 @@
     background-color: var(--var-headBlock-bg);
 
 }
-.now-watch-movie{
-    width: 100%;
-    height: 850px;
-}
+
 .title-upcoming{
     text-transform: uppercase;
     margin-bottom: 40px;
@@ -23,10 +20,11 @@
 }
 
 .now-watch-movie{
-
-    height: 200vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    box-sizing: border-box;
 
 }
