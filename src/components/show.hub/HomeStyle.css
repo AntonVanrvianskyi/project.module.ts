@@ -2,6 +2,7 @@
 
     padding: 40px;
     background-color: var(--var-headBlock-bg);
+
 }
 .now-watch-movie{
     width: 100%;
@@ -15,13 +16,13 @@
 .title-play{
     margin-top: 90px;
     text-align: center;
-    color: #d0cfcf;
+    color:  var(--var-title-upcoming-color);
     margin-bottom: 40px;
 }
 
 .now-watch-movie{
 
-
+    height: 200vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

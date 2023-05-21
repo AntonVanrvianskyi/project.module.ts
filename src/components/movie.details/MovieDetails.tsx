@@ -1,4 +1,6 @@
 import React, {FC, useEffect} from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 import './MovieDetails.css'
 import {useAppDispatch, useAppLocation, useAppSelector} from "../../hooks";
@@ -7,6 +9,8 @@ import StarRating from "../star.rating/StarRating";
 import {movieAction} from "../../redux";
 import {youtubeUrl} from "../../constants/urls";
 import {useNavigate} from "react-router-dom";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import Tooltip from '@mui/material/Tooltip';
 
 
 const MovieDetails:FC = () => {
@@ -17,24 +21,25 @@ const MovieDetails:FC = () => {
     const navigate = useNavigate()
 
     const {genres} = useAppSelector(state1 => state1.genreReducer)
-    const {videoList} = useAppSelector(state => state.movieReducer)
+    const {videoList,showVideo} = useAppSelector(state => state.movieReducer)
     const dispatch = useAppDispatch()
-
-    useEffect(() => {
-        dispatch(movieAction.getVideo({movieId: 713704}))
-    }, [dispatch])
+    const closeVideo = () => {
+      dispatch(movieAction.showVideo())
+    }
 
     useEffect(()=>{
         dispatch(movieAction.getVideo({movieId:id}))
     },[dispatch,id])
 
 
+
     return (
         <div className='container-details'>
-            {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
-            <iframe className='video' width="760" height="515" src={`${youtubeUrl}${videoList[0]}`} allowFullScreen></iframe>
+            <img className='img-details' src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={'poster'}/>
             <div className='content-details'>
-                <img className='img-details' src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={'poster'}/>
+                {/*<img className='img-details' src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={'poster'}/>*/}
+                <p className='text-p'>Rating:</p>
+                <StarRating vote_average={vote_average}/>
                 <p className='text-p'>{title}</p>
                 <div>
                     <p className='text-p'>Release date: {release_date}</p>
@@ -53,9 +58,15 @@ const MovieDetails:FC = () => {
                             )
                         }
                     </ul>
-                    <StarRating vote_average={vote_average}/>
+                    <div className='btn-div'><Tooltip title="Play"><button className='btn' onClick={()=>dispatch(movieAction.showVideo())}><PlayArrowIcon/></button></Tooltip></div>
                 </div>
             </div>
+            {
+
+                showVideo&&
+                // eslint-disable-next-line jsx-a11y/iframe-has-title
+                <div className='video' ><button onClick={closeVideo} className='close'><CloseIcon/></button> <iframe  width="760" height="515" src={`${youtubeUrl}${videoList[0]}?random=${Math.random()}`} allowFullScreen></iframe></div>
+            }
         </div>
     );
 };

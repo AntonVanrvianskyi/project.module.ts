@@ -11,7 +11,7 @@ const Movies = () => {
 
 
     const dispatch = useAppDispatch()
-    const {movies, CurrPage,total_pages} = useAppSelector(state => state.movieReducer)
+    const {movies,showVideo, CurrPage,total_pages} = useAppSelector(state => state.movieReducer)
     const [query,setQuery] = useSearchParams()
 
     const navigate = useNavigate()
@@ -21,6 +21,9 @@ const Movies = () => {
         searchMovies()
     }, [CurrPage, queryString])
 
+    useEffect(()=>{
+        dispatch(movieAction.noVideo())
+    },[dispatch])
     const searchMovies = () => {
         if (queryString) {
 

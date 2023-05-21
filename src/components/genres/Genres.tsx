@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {genreAction} from "../../redux";
+import {genreAction, movieAction} from "../../redux";
 import Genre from "./genre/Genre";
 
 const Genres = () => {

@@ -10,7 +10,7 @@
     --var-movie-details-text-color: #d0cfcf;
 
 }
-[dark]{
+.dark{
     --var-continer-bg: #a19f9f;
     --var-link-color: #3d3a3a;
     --var-headBlock-bg: #cbc7c7;

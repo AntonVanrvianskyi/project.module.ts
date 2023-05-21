@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import './App.css';
-import {Navigate, Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import ShowHubPages from "./pages/ShowHubPages";
 import MoviesPage from "./pages/MoviesPage";
@@ -12,16 +12,16 @@ import MovieDetails from "./components/movie.details/MovieDetails";
 
 function App() {
     return (
-        <Routes>
-            <Route path={'/'} element={<MainLayout/>}>
-                <Route index element={<Navigate to={'hub'}/>}/>
-                <Route path={'hub'} element={<ShowHubPages/>}/>
-                <Route path={'movie'} element={<MoviesPage/>}>
-                    <Route path={':id'} element={<MovieDetails/>}/>
+            <Routes>
+                <Route path={'/'} element={<MainLayout/>}>
+                    <Route index element={<Navigate to={'hub'}/>}/>
+                    <Route path={'hub'} element={<ShowHubPages/>}/>
+                    <Route path={'movie'} element={<MoviesPage/>}>
+                        <Route path={':id'} element={<MovieDetails/>}/>
+                    </Route>
+                    <Route path={'genres/:genreId/:name'} element={<GenreMovieListPage/>}/>
                 </Route>
-                <Route path={'genres/:genreId/:name'} element={<GenreMovieListPage/>}/>
-                </Route>
-        </Routes>
+            </Routes>
 );
 }
 

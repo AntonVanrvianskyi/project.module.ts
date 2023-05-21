@@ -14,7 +14,7 @@
 
 }
 .movie:hover{
-
+    cursor: pointer;
     border: 2px solid orangered;
 }
 .title{

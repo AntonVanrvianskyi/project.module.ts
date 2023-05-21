@@ -9,12 +9,15 @@ import MoviePlay from "./movie.play.now/MoviePlay";
 
 const HomeComponent = () => {
 
-        const {moviesPlayNow} = useAppSelector(state => state.movieReducer)
+        const {moviesPlayNow,showVideo} = useAppSelector(state => state.movieReducer)
         const dispatch = useAppDispatch()
         useEffect(()=>{
             dispatch(movieAction.getMoviesPlayNow({page:2}))
+            dispatch(movieAction.showVideo())
         },[dispatch])
-
+    useEffect(()=>{
+        dispatch(movieAction.noVideo())
+    },[])
     return (
         <div className='head-block'>
             <h1 className='title-upcoming'><span style={{color:'orangered'}}>Upcoming</span> Movie</h1>

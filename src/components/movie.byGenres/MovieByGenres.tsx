@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {Pagination as Paginate} from "@mui/material";
 
-import {genreAction} from "../../redux";
+import {genreAction, movieAction} from "../../redux";
 import {Navigate, useNavigate, useParams, useSearchParams} from "react-router-dom";
 import MovieByGenre from "./movieByGenre/MovieByGenre";
 import './movieByGenres.css'
@@ -18,7 +18,9 @@ const MovieByGenres = () => {
    useEffect(()=>{
        dispatch(genreAction.getMovieByGenre({idGenre:parseInt(id),page:currPage}))
    },[ dispatch, id,currPage ])
-
+    useEffect(()=>{
+        dispatch(movieAction.noVideo())
+    },[])
     const setQueryPage = (num:number) => {
         dispatch(genreAction.changeCurrPage(num))
         navigate(`?page=${num}`)
@@ -46,17 +48,6 @@ const MovieByGenres = () => {
 
         </div>
 
-        // <div className='movies-container'>
-        //         <h1>{name}</h1>
-        //     <div> <Paginate count={totalPage>500?500:totalPage}
-        //                     page={currPage}
-        //                     onChange={(_,num)=>setQueryPage(num)}/></div>
-        //     <div className='movies'>
-        //     {
-        //         movieByGenre.map(value =><MovieByGenre movie={value} key={value.id}/>)
-        //     }
-        //     </div>
-        // </div>
     );
 };
 
