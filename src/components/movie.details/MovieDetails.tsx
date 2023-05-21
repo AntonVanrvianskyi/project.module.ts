@@ -9,7 +9,7 @@ import {useAppDispatch, useAppLocation, useAppSelector} from "../../hooks";
 import {IMovie} from "../../interfaces";
 import StarRating from "../star.rating/StarRating";
 import {movieAction} from "../../redux";
-import {youtubeUrl} from "../../constants/urls";
+import {youtubeUrl} from "../../constants";
 
 
 
@@ -42,12 +42,13 @@ const MovieDetails:FC = () => {
         <div className='container-details'>
             <img className='img-details' src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={'poster'}/>
             <div className='content-details'>
+                <p className='text-p-title'>{title}</p>
                 <p className='text-p'>Rating:</p>
                 <StarRating vote_average={vote_average}/>
-                <p className='text-p'>{title}</p>
+
                 <div>
                     <p className='text-p'>Release date: {release_date}</p>
-                    <h2 className='h2'>Overview:</h2>
+                    <h3 className='h3'>Overview:</h3>
                     <p className='text-p'>
                     {overview}
                     </p>
